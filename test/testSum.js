@@ -1,7 +1,7 @@
 const assert = require('assert');
 
 const sum = function(a, b) {
-  return a - b;
+  return a + b;
 };
 
 describe('sum', () => {
