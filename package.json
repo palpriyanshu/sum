@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "isThere": "which sqlite3"
   },
   "keywords": [],
   "author": "",
