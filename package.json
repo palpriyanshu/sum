@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "isThere": "which sqlite3"
   },
   "keywords": [],
   "author": "",
