@@ -17,7 +17,7 @@ jobs:
           - uses: actions/checkout@v2
       - uses: actions/checkout@v2    
         with:
-          repository: palpriyanshu/Library-frontend
+          repository: palpriyanshu/Library-react
           path: frontend
     - name: Building frontend
       run: |
