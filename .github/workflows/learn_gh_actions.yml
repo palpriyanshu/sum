@@ -14,3 +14,16 @@ jobs:
           cd backend
           npm install
           npm test
+          - uses: actions/checkout@v2
+      with:
+        repository: palpriyanshu/Library-frontend
+        path: frontend
+    - name: Building frontend
+      run: |
+        cd frontend
+        npm install
+        npm run build
+        mv build ../backend/
+        cd ..
+        rm -rf frontend
+        ls ../backend
