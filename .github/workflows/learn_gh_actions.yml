@@ -8,3 +8,12 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm install
       - run: npm test
+      with:
+          fetch-depth: 1000
+          repository: palpriyanshu/library-backend
+          path: backend
+      - name: Testing Backend
+        run: |
+          cd backend
+          npm install
+          npm test
