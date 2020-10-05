@@ -5,4 +5,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/setup-node@v1
-      - run: test
+      - run: npm test
