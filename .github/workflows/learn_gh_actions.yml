@@ -5,10 +5,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install
-      - run: npm test
-      with:
+        with:
           fetch-depth: 1000
           repository: palpriyanshu/library-backend
           path: backend
