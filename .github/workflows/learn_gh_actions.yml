@@ -15,9 +15,10 @@ jobs:
           npm install
           npm test
           - uses: actions/checkout@v2
-      with:
-        repository: palpriyanshu/Library-frontend
-        path: frontend
+      - uses: actions/checkout@v2    
+        with:
+          repository: palpriyanshu/Library-frontend
+          path: frontend
     - name: Building frontend
       run: |
         cd frontend
