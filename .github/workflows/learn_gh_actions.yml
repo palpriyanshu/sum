@@ -4,8 +4,6 @@ jobs:
   run-tests:
     runs-on: macos-latest
     steps:
-      - name: loading code
       - uses: actions/checkout@v2
-      - name: setting node
       - uses: actions/setup-node@v1
       - run: npm test
