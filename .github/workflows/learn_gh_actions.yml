@@ -18,7 +18,10 @@ jobs:
         with:
           repository: palpriyanshu/Library-react
           path: frontend
+
       - name: Building frontend
+        env:
+          REACT_APP_AUTH_URL: /api/authenticate
         run: |
           cd frontend
           npm install
