@@ -1,44 +1,24 @@
-name: learn-gh-actions
-on: [push]
+name: Deploy to heroku
+on: push
+
 jobs:
-  run-tests:
+  build:
     runs-on: macos-latest
+
     steps:
-      -name: cleaning current repo
-        run: rm -rf * .*
+      - name: checkout backend
+        run: |
+          git clone https://github.com/palpriyanshu/library-backend.git backend
+          cd backend
+          npm install
+          npm test
 
-      # -name: Clonning backend
-      #  run: |
-      #     git clone https://github.com/palpriyanshu/library-backend.git 2> /dev/null 
-      #     cd library-backend
-      #     mkdir -p public
-
-      # -name: installing dependencies    
-      #  run: npm install 2> /dev/null
-
-      # -name: running backend tests  
-      #  run: npm test
-
-      # - name: Clonning frontend
-      #   run: |
-      #     cd ..
-      #     git clone https://github.com/palpriyanshu/Library-react.git 2> /dev/null 
-      #     cd Library-react
-
-      # - name: installing frontend dependencies     
-      #   run: npm install 2> /dev/null
-
-      # - name: running frontend tests  
-      #   run:  npm test
-
-      # - name: creating build  
-      #   run: npm run build
-
-      # - name: moving build to backend
-      #   run: |
-      #     mv build/* ../public/
-      #     cd ..
-      #     mv library-backend/* library-backend/.* .
-
-      # - name: clearing unwanted directories
-      #   run: rm -rf Library-react  library-backend   
+      - name: Create build
+        run: |
+          git clone https://github.com/photongupta/todoApp.git frontend
+          cd frontend
+          npm install
+          npm test
+          npm run build
+          mv build/ ../backend/public/.
+          cd ..
