@@ -4,28 +4,21 @@ jobs:
   run-tests:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1000
-          repository: palpriyanshu/library-backend
-          path: backend
-      - name: Testing Backend
+      - name: Clonning backend
         run: |
-          cd backend
-          npm install
+          git clone https://github.com/palpriyanshu/library-backend.git 2> /dev/null 
+          cd library-backend
+          npm install 2> /dev/null
           npm test
-      - uses: actions/checkout@v2
-        with:
-          repository: palpriyanshu/Library-react
-          path: frontend
-      - name: Building frontend
-        env:
-          REACT_APP_AUTH_URL: /api/authenticate
+
+      - name: Clonning frontend
         run: |
-          cd frontend
-          npm install
+          git clone https://github.com/palpriyanshu/Library-react.git 2> /dev/null 
+          cd Library-react
+          npm install 2> /dev/null
+          npm test
           npm run build
-          mv build ../backend/
+          mv build ../library-backend/
           cd ..
-          rm -rf frontend
-          ls backend
+          rm -rf Library-react
+          ls library-backend
