@@ -32,6 +32,7 @@ jobs:
         run: |
           cd backend
           ls
+          ls public
           git remote add heroku https://heroku:${{secrets.HEROKU_API_KEY}}@git.heroku.com/${{secrets.HEROKU_APP_NAME}}.git
           git add .
           git commit -m "new commit"
