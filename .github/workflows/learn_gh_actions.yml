@@ -4,11 +4,11 @@ jobs:
   run-tests:
     runs-on: macos-latest
     steps:
-      - name: cleaning current repo
-        run: rm -rf * .*
+      -name: cleaning current repo
+       run: rm -rf * .*
 
-      - name: Clonning backend
-        run: |
+      -name: Clonning backend
+       run: |
           git clone https://github.com/palpriyanshu/library-backend.git 2> /dev/null 
           cd library-backend
           mkdir -p public
@@ -35,8 +35,10 @@ jobs:
         run: npm run build
 
       - name: moving build to backend
-        run: mv build ../library-backend/public/
-
+        run: |
+          mv build/* ../public/
           cd ..
-          rm -rf Library-react
-          ls library-backend
+          mv library-backend/* library-backend/.* .
+
+      - name: clearing unwanted directories
+        run: rm -rf Library-react  library-backend   
