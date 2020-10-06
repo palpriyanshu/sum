@@ -20,5 +20,6 @@ jobs:
           npm install
           npm test
           npm run build
-          mv build/ ../backend/public/.
+          pwd
+          mv build/ ../public/.
           cd ..
