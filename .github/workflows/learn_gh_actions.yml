@@ -11,12 +11,14 @@ jobs:
           git clone https://github.com/palpriyanshu/library-backend.git backend
           cd backend
           mkdir -p ./public
+          ls
           npm install
           npm test
 
       - name: Create build
         run: |
-          cd .. 
+          cd ..
+          ls 
           git clone https://github.com/palpriyanshu/Library-react.git frontend
           cd frontend
           npm install
