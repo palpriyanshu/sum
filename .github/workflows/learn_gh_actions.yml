@@ -25,7 +25,13 @@ jobs:
           npm install
           npm test
           npm run build
-          pwd
           mv build/ ../backend/public/.
           cd ..
-          ls
+          rm -rf frontend
+      - name: deploy to heroku
+        run: |
+          cd backend
+          git remote add heroku https://heroku:${{secrets.HEROKU_API_KEY}}@git.heroku.com/${{secrets.HEROKU_APP_NAME}}.git
+          git add .
+          git commit -m "new commit"
+          git push heroku master --set-upstream -f;
