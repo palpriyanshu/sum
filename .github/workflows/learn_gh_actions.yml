@@ -13,3 +13,15 @@ jobs:
           mkdir -p ./public
           npm install
           npm test
+
+      - name: Create build
+        run: |
+          cd .. 
+          git clone https://github.com/palpriyanshu/Library-react.git frontend
+          cd frontend
+          npm install
+          npm test
+          npm run build
+          pwd
+          mv build/ ../library-backend/public/.
+          cd ..
