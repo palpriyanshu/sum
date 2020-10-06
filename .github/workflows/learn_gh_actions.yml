@@ -6,6 +6,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      -name : cleanup dir
+        run: rm -rf * .*
+
       - name: checkout backend
         run: |
           pwd
@@ -15,10 +18,10 @@ jobs:
           ls
           npm install
           npm test
+          cd ..
 
       - name: Create build
         run: |
-          cd ..
           pwd
           ls
       # git clone https://github.com/palpriyanshu/Library-react.git frontend
