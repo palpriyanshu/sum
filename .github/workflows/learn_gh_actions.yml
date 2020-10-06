@@ -11,24 +11,21 @@ jobs:
 
       - name: checkout backend
         run: |
-          pwd
           git clone https://github.com/palpriyanshu/library-backend.git backend
           cd backend
           mkdir -p ./public
-          ls
           npm install
           npm test
           cd ..
 
       - name: Create build
         run: |
+          git clone https://github.com/palpriyanshu/Library-react.git frontend
+          cd frontend
+          npm install
+          npm test
+          npm run build
           pwd
+          mv build/ ../backend/public/.
+          cd ..
           ls
-      # git clone https://github.com/palpriyanshu/Library-react.git frontend
-      # cd frontend
-      # npm install
-      # npm test
-      # npm run build
-      # pwd
-      # mv build/ ../backend/public/.
-      # cd ..
