@@ -6,7 +6,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      -name : cleanup dir
+      - name: cleanup dir
         run: rm -rf * .*
 
       - name: checkout backend
