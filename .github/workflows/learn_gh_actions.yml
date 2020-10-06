@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: cleanup dir
-        run: rm -rf * .*
+        run: rm -rf * .gitignore .git .travis.yml
 
       - name: checkout backend
         run: |
